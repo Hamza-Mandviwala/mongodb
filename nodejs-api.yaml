@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    name: web
+  name: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: web
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: web
+    spec:
+      containers:
+      - image: developerrohitkhatri/sample-nodejs-api
+        name: web
+        resources: {}
+        envFrom:
+        - secretRef:
+            name: mongodb-secret
+status: {}
