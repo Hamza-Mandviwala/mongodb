@@ -1,4 +1,4 @@
-# Sample-Node-API with MongoDB Database on 5 Node Kubernetes Cluster:
+# Sample-Node-API with MongoDB Database on 5 Node Kubernetes Cluster
 
 IMPORTANT NOTES:
 - The Kubernetes cluster used for the demonstration was hosted on a 5 node VM cluster.(With reference from the Github guides by Kelsey Hightower & Mumshad Mannambeth)
