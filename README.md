@@ -1,4 +1,4 @@
-#Sample-Node-API with MongoDB Database on 5 Node Kubernetes Cluster:
+# Sample-Node-API with MongoDB Database on 5 Node Kubernetes Cluster:
 
 IMPORTANT NOTES:
 - The Kubernetes cluster used for the demonstration was hosted on a 5 node VM cluster.(With reference from the Github guides by Kelsey Hightower & Mumshad Mannambeth)
@@ -15,7 +15,7 @@ Step 2 - Create a secret object and pass the key and values using the following 
 
     kubectl create secret generic --from-literal=DB_HOST=localhost --from-literal=DB_PORT=27017 --from literal=DB_DATABASE=sample --from-literal=DB_USERNAME=sample --from-literal=DB_PASSWORD=any_password@123
 
-Step 3 - Create the prerequisit objects to so that they can be used by the Ingress Resource we create at a later step:
+Step 3 - Create the prerequisite objects to so that they can be used by the Ingress Resource we create at a later step:
 
    Namespace : 
     
@@ -74,7 +74,7 @@ Step 10 - Finally create the Ingress Resource object that will include the backe
 
     kubectl create -f ingress-resource.yaml
 
-step 11- Once again verify if all objects created are up and running, and if any objects are not missing:
+Step 11- Once again verify if all objects created are up and running, and if any objects are not missing:
 
     kubectl get all --all-namespaces
     kubectl get services --all-namespaces
