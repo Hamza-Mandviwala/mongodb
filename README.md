@@ -5,6 +5,9 @@ IMPORTANT NOTES:
 - Virtual Box on MAC machine was used to virtualize 5 Ubuntu bionic VMs using vagrant tool.
 - MAC Terminal used as an ssh client to login to the VMs and conduct the given tasks:
 - The K8s cluster was setup referring to the guide by Kelsey Hightower on GitHub.
+- All application components have been deployed in the default namespaces, except for Ingress controller and Ingress service which are deployed in the ‘ingress-space’ namespace.
+- The sample-nodejs-api image has been deployed as a deployment named web
+- The mongodb deployment has been named mongo
 
 
 Step 1 - First generate the yaml file for Persistent Volumes & Persistent Volume Claims. Create the required persistent volumes & persistent volume claims.
