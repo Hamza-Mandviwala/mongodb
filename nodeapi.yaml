@@ -18,10 +18,18 @@ spec:
         name: web
     spec:
       containers:
-      - image: developerrohitkhatri/sample-nodejs-api
+      - image: hamzamandviwala/samplenodejs
         name: web
         resources: {}
-        envFrom:
-        - secretRef:
-            name: mongodb-secret
+        env:
+        - name: DB_HOST
+          value: "localhost"
+        - name: DB_PORT
+          value: "27017"
+        - name: DB_DATABASE
+          value: "sample"
+        - name: DB_USERNAME
+          value: "sample"
+        - name: DB_PASSWORD
+          value: "any_password@123"
 status: {}
