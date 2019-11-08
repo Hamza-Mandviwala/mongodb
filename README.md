@@ -16,7 +16,7 @@ Step 1 - First generate the yaml file for Persistent Volumes & Persistent Volume
 
 Step 2 - Create a secret object and pass the key and values using the following command:
 
-    kubectl create secret generic --from-literal=DB_HOST=localhost --from-literal=DB_PORT=27017 --from literal=DB_DATABASE=sample --from-literal=DB_USERNAME=sample --from-literal=DB_PASSWORD=any_password@123 mongodb-secret
+    kubectl create secret generic --from-literal=DB_HOST=localhost --from-literal=DB_PORT=27017 --from-literal=DB_DATABASE=sample --from-literal=DB_USERNAME=sample --from-literal=DB_PASSWORD=any_password@123 mongodb-secret
 
 Step 3 - Create the prerequisite objects to so that they can be used by the Ingress Resource we create at a later step:
 
