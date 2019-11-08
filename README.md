@@ -54,13 +54,18 @@ Step 6 - We now generate an external NodePort service YAML file that external us
 
     kubectl create -f nodeapi-service.yaml
  
-Step 7 - Generate a YAML file for the sample-node-api Deployment and create an object for the same:
+Step 7 - Generate a YAML file for the sample-node-api Deployment and create an object for the same, but first I forked the image developerrohitkhatri/sample-nodejs-api with dependencies to access Mongodb deployment:
+- Navigate into the directory where the Dockerfile resides and then :
+    
+       docker build -t hamzamandviwala/samplenodejs .
+       docker push hamzamandviwala/samplenodejs    
 
-    kubectl create -f nodeapi.yaml
+       kubectl create -f nodeapi.yaml
+ NOTE: the above docker commands were performed by logging to Docker using the 'docker login' command on the terminal, if you wish to perform the above action, ensure you tag the image name correctly so that it points to your dockerhub registry name.
  
-   NOTE : We shall now be able to verify our deployments are up and running using the following command :
+ We shall now be able to verify our deployments are up and running using the following command :
    
-    kubectl get all --all-namespaces
+      kubectl get all --all-namespaces
    
 Step 8 - Now go ahead with the creation of the Ingress Controller deployment object:
 
@@ -77,10 +82,11 @@ Step 10 - Finally create the Ingress Resource object that will include the backe
 Step 11- Once again verify if all objects created are up and running, and if any objects are not missing:
 
     kubectl get all --all-namespaces
-    kubectl get services --all-namespaces
     kubectl get pv,pvc
-    kubectl get secrets,configmaps --all-namespaces
-    kubectl get serviceaccounts --all-namespaces
+    kubectl get secrets,configmaps 
+    kubectl get serviceaccounts -n ingress-space
+    kubectl get roles,rolebindings -n ingress-space
+    kubectl get clusterroles,clusterrolebindings | grep ingress
  
  
 
