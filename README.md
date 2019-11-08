@@ -16,7 +16,7 @@ Step 1 - First generate the yaml file for Persistent Volumes & Persistent Volume
 
 Step 2 - Create a secret object and pass the key and values using the following command:
 
-    kubectl create secret generic --from-literal=DB_HOST=localhost --from-literal=DB_PORT=27017 --from literal=DB_DATABASE=sample --from-literal=DB_USERNAME=sample --from-literal=DB_PASSWORD=any_password@123
+    kubectl create secret generic --from-literal=DB_HOST=localhost --from-literal=DB_PORT=27017 --from literal=DB_DATABASE=sample --from-literal=DB_USERNAME=sample --from-literal=DB_PASSWORD=any_password@123 mongodb-secret
 
 Step 3 - Create the prerequisite objects to so that they can be used by the Ingress Resource we create at a later step:
 
@@ -49,7 +49,7 @@ Step 4 - Create the mongo service using the following command:
 
     kubectl create -f mongodb-service.yaml
  
-Step 5 - Now generate a YAML file for the MongoDB deployment. The container mounts the persistent volume claim we created earlier. Note that we are labelling the pods with ‘name: mongo’, so that the service we created in the previous step applies to the deployment:
+Step 5 - Now generate a YAML file for the MongoDB deployment. The container mounts the persistent volume claim we created earlier, as well as the secret object we created earlier for authentication to the MongoDB pod. Note that we are labelling the pods with ‘name: mongo’, so that the service we created in the previous step applies to the deployment:
 
     kubectl create -f mongodb.yaml
  
